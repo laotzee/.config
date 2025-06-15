@@ -10,6 +10,8 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $fm DP-0
+set $sm HDMI1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -34,7 +36,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-exec xrandr --output DP-0 --mode 2560x1600 --rate 240.0 
+#exec xrandr --output DP-0 --mode 2560x1600 --rate 240.0 
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -114,6 +116,23 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+workspace 1 output $fm
+workspace 2 output $fm
+workspace 3 output $fm
+workspace 4 output $fm
+workspace 5 output $fm
+workspace 6 output $fm
+workspace 7 output $fm
+workspace 8 output $fm
+workspace 9 output $fm
+workspace 0 output $fm
+workspace 10 output $sm
+workspace 11 output $sm
+workspace 12 output $sm
+workspace 13 output $sm
+workspace 14 output $sm
+workspace 15 output $sm
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -125,7 +144,12 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws0 "0"
+set $ws11 "11"
+set $ws12 "12"
+set $ws13 "13"
+set $ws14 "14"
+set $ws15 "15"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -137,7 +161,12 @@ bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $mod+0 workspace number $ws0
+bindsym Mod1+u+1 workspace number $ws11
+bindsym Mod1+u+2 workspace number $ws12
+bindsym Mod1+u+3 workspace number $ws13
+bindsym Mod1+u+4 workspace number $ws14
+bindsym Mod1+u+5 workspace number $ws15
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -198,8 +227,8 @@ default_border pixel
 
 ## Space between windows
 smart_gaps on
-gaps outer 5px
-gaps inner 5px
+gaps outer 7px
+gaps inner 7px
 
 
 # Sreen brightness controls
@@ -218,3 +247,13 @@ bindsym XF86AudioPrev exec playerctl previous
 # Changes keyboard layout
 
 exec_always "setxkbmap -model pc104 -layout us,es -variant ,, -option grp:alt_shift_toggle"
+
+exec_always feh --bg-scale ~/Downloads/falcon.png
+
+# So that screen does not turn off then idle
+exec_always "xset s off"
+exec_always "xset -dpms"
+
+#For floating stuff using vlc
+for_window [class="Vlc"] floating enable
+for_window [class="Vlc"] sticky enable
