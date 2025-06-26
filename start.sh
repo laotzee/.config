@@ -1,11 +1,24 @@
 #!bin/bash
 
-
-# Connect to wifi
+# Todo before running:
+    # Connect to internet
+    # Setup SSH
+    # While installing the Nvidia drives, you'll need to create a password
+    #
+# Things to implement:
+    # if statement for separating part one (all the installation) and the
+        # reboot after doing Nvidia stuff
+    # Program fresh backup using timeshift
+cd
 
 dnf update -y
 
 dnf install git -y
+
+git clone git@github.com:laotzee/.config.git
+
+cd .config/alacritty
+git clone https://github.com/alacritty/alacritty-theme.git
 
 cd
 
@@ -14,16 +27,16 @@ mkdir projects
 cd projects
 
 git clone git@github.com:laotzee/pomi.git
-git clone git@github.com:laotzee/.config.git
+
+cd
 
 # Regular packages I like
 dnf install alacritty timeshift firefox neovim lynx flameshot qbittorrent gparted libreoffice
 
-# Video drivers
+# Video drivers 
 dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 
 dnf config-manager setopt fedora-cisco-openh264.enabled=1 #Just for Fedora 41 onwards
-
 
 # Installing Nvidia drivers
 
