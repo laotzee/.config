@@ -9,47 +9,53 @@
     # if statement for separating part one (all the installation) and the
         # reboot after doing Nvidia stuff
     # Program fresh backup using timeshift
-cd
+    #
 
-dnf update -y
+if $1 -eq 1; then
 
-dnf install git -y
+    cd
 
-git clone git@github.com:laotzee/.config.git
+    dnf update -y
 
-cd .config/alacritty
-git clone https://github.com/alacritty/alacritty-theme.git
+    dnf install git -y
 
-cd
+    git clone git@github.com:laotzee/.config.git
 
-mkdir projects
+    cd .config/alacritty
+    git clone https://github.com/alacritty/alacritty-theme.git
 
-cd projects
+    cd
 
-git clone git@github.com:laotzee/pomi.git
+    mkdir projects
 
-cd
+    cd projects
 
-# Regular packages I like
-dnf install alacritty timeshift firefox neovim lynx flameshot qbittorrent gparted libreoffice
+    git clone git@github.com:laotzee/pomi.git
 
-# Video drivers 
-dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+    cd
 
-dnf config-manager setopt fedora-cisco-openh264.enabled=1 #Just for Fedora 41 onwards
+    # Regular packages I like
+    dnf install alacritty timeshift firefox neovim lynx flameshot qbittorrent gparted libreoffice
 
-# Installing Nvidia drivers
+    # Video drivers 
+    dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 
-dnf install kmodtool akmods mokutil openssl -y
+    dnf config-manager setopt fedora-cisco-openh264.enabled=1 #Just for Fedora 41 onwards
 
-kmodgenca -a
+    # Installing Nvidia drivers
 
-mokutil --import /etc/pki/akmods/certs/public_key.der
+    dnf install kmodtool akmods mokutil openssl -y
 
-# You'll be prompted to provide a password, you'll need it after reboot. 
+    kmodgenca -a
 
-systemctl reboot
+    mokutil --import /etc/pki/akmods/certs/public_key.der
 
-sudo dnf install akmod-nvidia # rhel/centos users can use kmod-nvidia instead
-sudo dnf install xorg-x11-drv-nvidia-cuda #optional for cuda/nvdec/nvenc support
+    # You'll be prompted to provide a password, you'll need it after reboot. 
+
+    systemctl reboot
+
+elif [ $1 -eq 2 ]; then
+
+    sudo dnf install akmod-nvidia # rhel/centos users can use kmod-nvidia instead
+    sudo dnf install xorg-x11-drv-nvidia-cuda #optional for cuda/nvdec/nvenc support
 
