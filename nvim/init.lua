@@ -4,6 +4,7 @@ vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
 vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
 
 -- Basic settings
+vim.opt.laststatus = 0
 vim.opt.number = true                              -- Line numbers
 vim.opt.relativenumber = true                      -- Relative line numbers
 vim.opt.cursorline = true                          -- Highlight current line
