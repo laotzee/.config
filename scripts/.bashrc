@@ -9,8 +9,8 @@ alias ct='python3 ~/projects/Script-Dump/utility/uncheck-todo/main.py ~/todo.md'
 
 # Development
 
-alias venv='source venv/bin/activate'
-
+alias venv='source .venv/bin/activate'
+alias cvenv='python -m venv .venv'
 
 #
 # .bashrc
