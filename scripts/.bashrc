@@ -1,6 +1,8 @@
 # Work areas
 
-export w1=~/writing/posts/1.md
+export w1=~/writing/posts/eng/drafts/2.md
+export w2=~/writing/posts/eng/drafts/3.md
+
 
 # General programs
  
@@ -57,7 +59,7 @@ alias gd='git diff'
 alias gr='git restore'
 
 # DNF
-#
+
 alias du='sudo dnf update -y'
 alias di='sudo dnf install -y'
 alias dr='sudo dnf remove'
@@ -74,8 +76,11 @@ alias pmt='python3 manage.py test'
 
 alias sb="source $HOME/.bashrc"
 alias conf="nvim $HOME/.bashrc"
-alias uconf='bash ~/projects/.config/updateConfig.sh'
+alias uconf='bash ~/projects/.config/scripts/updateConfig.sh'
 
+# Environment variables
 
-
+export WWW_HOME='duckduckgo.com'
+export LYNX_CFG=~/.config/lynx/lynx.cfg
+export LYNX_LSS=~/.config/lynx/lynx.lss
 
