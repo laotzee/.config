@@ -3,6 +3,24 @@ vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
 vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
 
+-- Create an Autocommand Group (best practice)
+local hl_group = vim.api.nvim_create_augroup('CustomHtmlHighlights', { clear = true })
+
+-- Create an autocommand that runs every time a colorscheme is set
+vim.api.nvim_create_autocmd("ColorScheme", {
+  group = hl_group,
+  pattern = "*",
+  callback = function()
+    -- Set the bold attribute for the linked group 'htmlBold'
+    -- The { bold = true } attribute is what you need.
+    -- The highlight group name is case-sensitive, so use 'htmlBold' exactly.
+    vim.api.nvim_set_hl(0, 'htmlBold', { bold = true })
+    
+    -- Optional: If you also want to change the color (fg) from the default:
+    -- vim.api.nvim_set_hl(0, 'htmlBold', { fg = '#FFFF00', bold = true }) -- Example: Yellow color
+  end,
+})
+
 -- Basic settings
 vim.opt.laststatus = 0
 vim.opt.number = true                              -- Line numbers
