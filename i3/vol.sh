@@ -16,7 +16,7 @@ if [ "$1" == "up" ]; then
     NEW_VOLUME=$((CURRENT_VOLUME + 5))
     echo "New Volume (before check): $NEW_VOLUME" >> /tmp/volume_control.log
     # Set volume only if new volume is less than or equal to 90%
-    if [ "$NEW_VOLUME" -le 90 ]; then
+    if [ "$NEW_VOLUME" -le 85 ]; then
         pactl set-sink-volume @DEFAULT_SINK@ +5%
     fi
     # Get the updated volume after setting
