@@ -1,8 +1,7 @@
 # Work areas
 
-export w1=~/writing/posts/eng/drafts/2.md
+export w1=~/writing/posts/eng/drafts/3.md
 export w2=~/writing/posts/eng/drafts/3.md
-
 
 # General programs
  
@@ -40,7 +39,6 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 unset rc
-
 
 # Git command abbreviations
  
@@ -83,4 +81,5 @@ alias uconf='bash ~/projects/.config/scripts/updateConfig.sh'
 export WWW_HOME='duckduckgo.com'
 export LYNX_CFG=~/.config/lynx/lynx.cfg
 export LYNX_LSS=~/.config/lynx/lynx.lss
+
 
