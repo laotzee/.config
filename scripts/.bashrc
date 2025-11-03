@@ -1,7 +1,7 @@
 # Work areas
 
-export w1=~/writing/posts/eng/drafts/3.md
-export w2=~/writing/posts/eng/drafts/3.md
+export w1=~/writing/posts/eng/drafts/4.md
+export w2=~/writing/posts/esp/3.md
 
 # General programs
  
@@ -25,6 +25,7 @@ fi
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
+
 export PATH
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
@@ -81,5 +82,4 @@ alias uconf='bash ~/projects/.config/scripts/updateConfig.sh'
 export WWW_HOME='duckduckgo.com'
 export LYNX_CFG=~/.config/lynx/lynx.cfg
 export LYNX_LSS=~/.config/lynx/lynx.lss
-
-
+export PATH="$HOME/scripts:$PATH"
