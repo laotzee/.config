@@ -19,6 +19,8 @@ set $sm HDMI1
 # is used in the bar {} block below.
 font pango:monospace 8
 
+# Selects card 4 to lower drastically the output of the headphones.
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -121,7 +123,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -227,21 +229,21 @@ bindsym $mod+r mode "resize"
 # status bar
 bar {
     i3bar_command i3bar --transparency
-    mode hide
-    modifier none
+#    mode hide
+#    modifier none
     colors {
         background #122222CC
         statusline #ffffffff
         separator #66666688 
         focused_workspace  #4c7899ff #285577ff #ffffffff
     } 
-    hidden_state hide
-    status_command py3status -c ~/.config/i3status/config
+#    hidden_state hide
+    status_command ~/.local/bin/py3status -c ~/.config/i3status/config
 }
 # Show the bar when Mod + Escape is pressed
-bindsym $mod+Escape bar hidden_state show
+#bindsym $mod+Escape bar hidden_state show
 # Hide the bar when Mod + Escape is released
-bindsym --release $mod+Escape bar hidden_state hide
+#bindsym --release $mod+Escape bar hidden_state hide
 
 exec_always --no-startup-id feh --bg-fill $HOME/Downloads/wall.jpg
 
@@ -265,6 +267,12 @@ new_float normal 0
 # You may also need this to override border settings for existing windows or specific classes
 for_window [class="^.*"] border pixel 0
 
+set $primary   #00FF00
+set $bg_dark   #00000000
+set $text_light #f5f5f5
+set $urgent_red #ff0000
+
+client.focused          $primary $primary $text_light $primary $primary
 
 
 # Sreen brightness controls
@@ -282,7 +290,9 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Changes keyboard layout
 
-exec_always "setxkbmap -model pc104 -layout us,es -variant ,, -option grp:alt_shift_toggle"
+exec_always "setxkbmap -model pc104 -layout us,es,de -variant ,,, -option grp:alt_shift_toggle"
+
+hide_edge_borders smart
 
 # So that screen does not turn off then idle
 exec_always --no-startup-id xset s off
@@ -292,3 +302,7 @@ exec_always --no-startup-id xset s noblank
 #For floating stuff using vlc
 for_window [class="Vlc"] floating enable
 for_window [class="Vlc"] sticky enable
+
+#audio
+bindsym $mod+a exec ~/.config/i3/toggle_audio.sh
+exec_always --no-startup-id ~/.config/i3/headphone_volume.sh
