@@ -62,7 +62,7 @@ alias gr='git restore'
 
 # DNF
 
-alias du='sudo dnf update -y'
+alias dus='sudo dnf update -y'
 alias di='sudo dnf install -y'
 alias dr='sudo dnf remove'
 alias ds='dnf search'
@@ -86,3 +86,5 @@ export WWW_HOME='duckduckgo.com'
 export LYNX_CFG=~/.config/lynx/lynx.cfg
 export LYNX_LSS=~/.config/lynx/lynx.lss
 export PATH="$HOME/scripts:$PATH"
+export EDITOR="/usr/bin/nvim"
+export VISUAL="$EDITOR"
