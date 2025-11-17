@@ -1,14 +1,13 @@
 # Work areas
 #
 
-export w1=~/writing/posts/eng/drafts/5.md
-export w2=~/writing/posts/esp/4.md
+export w1=~/writing/posts/eng/drafts/6.md
+export w2=~/writing/posts/esp/5.md
 
 export d=~/writing/daily/$(date +%Y-%m-%d).md
 
 # General programs
 #
-alias pomi='python3 ~/projects/pomi/src/main.py'
 alias ct='python3 ~/projects/Script-Dump/utility/uncheck-todo/main.py ~/todo.md'
 
 # Development
