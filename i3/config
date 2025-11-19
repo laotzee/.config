@@ -12,8 +12,8 @@
 # Set the initial mod key to ALT
 set $mod Mod4
 
-set $fm DP-0
-set $sm HDMI1
+set $fm eDP-1
+set $sm DP2
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -69,6 +69,8 @@ default_floating_border pixel 0
 
 # kill focused window
 bindsym $mod+Shift+q kill
+
+bindsym $mod+c "flameshot gui"
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
