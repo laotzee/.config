@@ -5,7 +5,7 @@ general {
 }
 
 py3status {
-    separator_block_width = 20
+    separator_block_width = 30
 
 }
 
@@ -13,11 +13,16 @@ order += "disk /"
 order += "wireless wlp1s0"
 order += "battery 0"
 order += "cpu_temperature 0"
-order += "memory"
 order += "load"
+order += "memory"
+#order += "bluetooth"
+#order += "volume_status"
+order += "keyboard_layout"
 order += "tztime local"
-order += "bluetooth"
-order += "volume_status"
+
+keyboard_layout {
+    format = "⌨ {layout}"
+}
 
 bluetooth {
     format = ""
@@ -39,7 +44,7 @@ battery 0 {
         status_full = "☻ FULL"
         status_idle = "☻ IDLE"
         path = "/sys/class/power_supply/BAT%d/uevent"
-        low_threshold = 10
+        low_threshold = 20
 }
 
 run_watch DHCP {
@@ -57,7 +62,7 @@ run_watch DHCP {
 #}
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = "%Y-%m-%d %H:%M:%S  "
 }
 
 load {
@@ -83,8 +88,6 @@ read_file uptime {
         path = "/proc/uptime"
 }
 
-# This is the speakers from my laptop, I can switch sound to it
-# on middle click
 volume_status {
         format = "♪: %volume"
         format_muted = "♪: muted (%volume)"
