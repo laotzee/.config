@@ -16,7 +16,7 @@ order += "cpu_temperature 0"
 order += "load"
 order += "memory"
 #order += "bluetooth"
-#order += "volume_status"
+order += "volume_status"
 order += "keyboard_layout"
 order += "tztime local"
 
