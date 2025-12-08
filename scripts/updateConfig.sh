@@ -17,3 +17,8 @@ rsync ~/.config/picom/picom.conf ~/projects/.config/picom/picom.conf
 #lynx
 rsync ~/.config/lynx/lynx.cfg ~/projects/.config/lynx/lynx.cfg
 rsync ~/.config/lynx/lynx.lss ~/projects/.config/lynx/lynx.lss
+
+#alacritty
+rsync ~/.config/alacritty/alacritty.toml ~/projects/.config/alacritty/alacritty.toml
+rsync ~/.config/alacritty/laotze.toml ~/projects/.config/alacritty/laotze.toml
+
