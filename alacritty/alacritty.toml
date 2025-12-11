@@ -1,7 +1,7 @@
 
 [general]
 import = [
-    "~/.config/alacritty/themes/themes/laotze.toml"
+    "~/.config/alacritty/laotze.toml"
 ]
 [window]
 opacity = 0.90
