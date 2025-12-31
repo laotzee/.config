@@ -1,10 +1,12 @@
 # Work areas
 #
+current_date=$(date +%Y-%m-%d)
 
-export w1=~/writing/posts/eng/drafts/6.md
-export w2=~/writing/posts/esp/5.md
+export w1=/home/laotze/writing/posts/eng/drafts/8.md
+export w2=~/writing/posts/esp/7.md
 
-export d=~/writing/daily/$(date +%Y-%m-%d).md
+export d=~/writing/daily/$current_date.md
+export dw=~/writing/posts/daily/$current_date.md
 
 # General programs
 #
