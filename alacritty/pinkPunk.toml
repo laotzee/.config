@@ -1,0 +1,48 @@
+[colors.primary]
+# Your deep, shimmering purple-black background
+background = '#08050A' 
+foreground = '#FAD1E6' 
+
+[colors.cursor]
+text = '#08050A'
+cursor = '#FF00FF' 
+
+[colors.vi_mode_cursor]
+text = '#08050A'
+cursor = '#FF00FF'
+
+[colors.search]
+matches = { foreground = '#08050A', background = '#00FFFF' }
+focused_match = { foreground = '#08050A', background = '#FF00FF' }
+
+[colors.hints]
+start = { foreground = '#08050A', background = '#FF00FF' }
+end = { foreground = '#FF00FF', background = '#08050A' }
+
+[colors.line_indicator]
+foreground = '#FF00FF'
+background = '#150B1F'
+
+[colors.selection]
+text = '#08050A'
+background = '#FF00FF'
+
+[colors.normal]
+black   = '#08050A'
+red     = '#FF2D55' 
+green   = '#FF00FF' # THE Neon Pink
+yellow  = '#00FFFF' # Swapped to Cyan for Lynx highlighting
+blue    = '#6B5BFF' 
+magenta = '#FF00FF'
+cyan    = '#70FFCA' # Mint/Aqua to stay distinct from the new yellow
+white   = '#F0F0F0'
+
+[colors.bright]
+black   = '#2A1B35' 
+red     = '#FF5E7E'
+green   = '#FF77FF' 
+yellow  = '#A1FFFF' # Bright highlight for Lynx
+blue    = '#9D92FF'
+magenta = '#FF99FF'
+cyan    = '#AAFFDF' 
+white   = '#FFFFFF'
