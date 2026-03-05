@@ -1,7 +1,6 @@
-
 [general]
 import = [
-    "~/.config/alacritty/laotze.toml"
+    "~/.config/alacritty/pinkPunk.toml"
 ]
 [window]
 opacity = 0.90
@@ -10,5 +9,8 @@ dynamic_padding = true
 [window.padding]
 x = 10
 y = 10
+
+[font]
+size = 13.0
 
 
