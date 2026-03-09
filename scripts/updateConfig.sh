@@ -21,4 +21,5 @@ rsync ~/.config/lynx/lynx.lss ~/projects/.config/lynx/lynx.lss
 #alacritty
 rsync ~/.config/alacritty/alacritty.toml ~/projects/.config/alacritty/alacritty.toml
 rsync ~/.config/alacritty/laotze.toml ~/projects/.config/alacritty/laotze.toml
+rsync ~/.config/alacritty/pinkPunk.toml ~/projects/.config/alacritty/pinkPunk.toml
 
