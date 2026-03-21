@@ -1,104 +1,55 @@
 general {
-        output_format = "i3bar"
-        colors = true
-        interval = 5
+    colors = true
+    interval = 1
+    output_format = "i3bar"
+    
+    # Your custom color palette
+    color_good = "#FAD1E6"      # Soft Pink (Regular/Intermediate)
+    color_degraded = "#FAD1E6"  # Keeping it pink for intermediate
+    color_bad = "#FF00FF"       # Magenta (Extreme Cases)
 }
 
-py3status {
-    separator_block_width = 30
-
-}
-
-order += "disk /"
-order += "wireless wlp1s0"
-order += "battery 0"
+order += "wireless _first_"
+order += "cpu_usage"
 order += "cpu_temperature 0"
-order += "load"
 order += "memory"
-#order += "bluetooth"
-order += "volume_status"
-order += "keyboard_layout"
+order += "volume master"
+order += "read_file kbd"
 order += "tztime local"
 
-keyboard_layout {
-    format = "⌨ {layout}"
+wireless _first_ {
+    # Restored %quality (connection strength) and %ip (IP address)
+    format_up = "  %essid (%quality) %ip "
+    format_down = "  down "
 }
 
-bluetooth {
-    format = ""
-    on_click 1 = "exec bluetoothctl power on"
-    on_click 3 = "exec bluetoothctl power off"
-}
-
-wireless wlp1s0 {
-        format_up = "W: (%quality at %essid, %bitrate) %ip"
-        format_down = "W: down"
-}
-
-battery 0 {
-        format = "%status %percentage"
-        format_down = "No battery"
-        status_chr = "CHR"
-        status_bat = "BAT"
-        status_unk = "? UNK"
-        status_full = "☻ FULL"
-        status_idle = "☻ IDLE"
-        path = "/sys/class/power_supply/BAT%d/uevent"
-        low_threshold = 20
-}
-
-run_watch DHCP {
-        pidfile = "/var/run/dhclient*.pid"
-}
-
-#run_watch VPNC {
-#        # file containing the PID of a vpnc process
-#        pidfile = "/var/run/vpnc/pid"
-#}
-
-#path_exists VPN {
-#        # path exists when a VPN tunnel launched by nmcli/nm-applet is active
-#        path = "/proc/sys/net/ipv4/conf/tun0"
-#}
-
-tztime local {
-        format = "%Y-%m-%d %H:%M:%S  "
-}
-
-load {
-        format = "%5min"
+cpu_usage {
+    format = " CPU: %usage "
+    degraded_threshold = 70
+    max_threshold = 85
 }
 
 cpu_temperature 0 {
-        format = "CPU: %degrees °C"
-        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon7/temp2_input"
+    format = " %degrees°C "
+    path = "/sys/class/thermal/thermal_zone6/temp"
+    max_threshold = 75
 }
 
 memory {
-        format = "RAM: %used"
-        threshold_degraded = "10%"
-        format_degraded = "MEMORY: %free"
+    format = " RAM: %used "
+    threshold_degraded = "15%" 
+    threshold_critical = "5%"
 }
 
-disk "/" {
-        format = "%free"
+volume master {
+    format = " VOL: %volume "
+    format_muted = " VOL: MUTED "
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
 }
 
-read_file uptime {
-        path = "/proc/uptime"
+tztime local {
+    format = " %Y-%m-%d %H:%M:%S "
+    timezone = "Etc/GMT+4"
 }
-
-volume_status {
-        format = "♪: %volume"
-        format_muted = "♪: muted (%volume)"
-        device = "default"
-        mixer = "Master"
-        mixer_idx = 0
-        thresholds = [
-        (40, 'good'), 
-        (55, 'degraded'), 
-        (80, 'bad')
-        ]
-        on_click 1 = "exec pavucontrol"
-}
-
