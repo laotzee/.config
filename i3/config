@@ -39,7 +39,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 #exec xrandr --output DP-0 --mode 2560x1600 --rate 240.0 
 
@@ -72,7 +72,6 @@ bindsym $mod+Shift+q kill
 bindsym $mod+c "flameshot gui"
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -230,16 +229,20 @@ bindsym $mod+r mode "resize"
 # status bar
 bar {
     i3bar_command i3bar --transparency
-#    mode hide
-#    modifier none
+
     colors {
-        background #122222CC
-        statusline #ffffffff
-        separator #66666688 
-        focused_workspace  #4c7899ff #285577ff #ffffffff
+        background #08050acc
+        statusline #FAD1E6
+        separator #FAD1E6
+
+        focused_workspace  #FF00FF  #08050acc #FAD1E6
+        active_workspace   #FAD1E6  #FAD1E6  #08050a
+        inactive_workspace #222222  #08050acc  #FAD1E6
+        urgent_workspace   #FF00FF  #FF00FF  #08050a
     } 
-#    hidden_state hide
-    status_command ~/.local/bin/py3status -c ~/.config/i3status/config
+#    status_command ~/.local/bin/py3status -c ~/.config/i3status/config
+    status_command i3status
+
 }
 # Show the bar when Mod + Escape is pressed
 #bindsym $mod+Escape bar hidden_state show
@@ -308,6 +311,8 @@ for_window [class="Vlc"] sticky enable
 bindsym $mod+a exec ~/.config/i3/toggle_audio.sh
 exec_always --no-startup-id ~/.config/i3/headphone_volume.sh
 
-# In your i3 config
 exec --no-startup-id env QT_AUTO_SCREEN_SCALE_FACTOR=0 QT_SCREEN_SCALE_FACTORS="1;1" flameshot
 bindsym $mod+Shift+s exec --no-startup-id flameshot gui
+
+# Dmenu with bigger font
+bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Monospace:size=13'
