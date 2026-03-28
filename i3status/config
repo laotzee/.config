@@ -1,12 +1,11 @@
 general {
     colors = true
-    interval = 1
+    interval = 5
     output_format = "i3bar"
     
-    # Your custom color palette
-    color_good = "#FAD1E6"      # Soft Pink (Regular/Intermediate)
-    color_degraded = "#FAD1E6"  # Keeping it pink for intermediate
-    color_bad = "#FF00FF"       # Magenta (Extreme Cases)
+    color_good = "#FAD1E6"      # Soft Pink
+    color_degraded = "#FAD1E6"  # Intermediate
+    color_bad = "#FF00FF"       # Magenta
 }
 
 order += "wireless _first_"
@@ -14,11 +13,11 @@ order += "cpu_usage"
 order += "cpu_temperature 0"
 order += "memory"
 order += "volume master"
+order += "battery all"
 order += "read_file kbd"
 order += "tztime local"
 
 wireless _first_ {
-    # Restored %quality (connection strength) and %ip (IP address)
     format_up = "  %essid (%quality) %ip "
     format_down = "  down "
 }
@@ -31,7 +30,7 @@ cpu_usage {
 
 cpu_temperature 0 {
     format = " %degrees°C "
-    path = "/sys/class/thermal/thermal_zone6/temp"
+    path = "/sys/class/thermal/thermal_zone1/temp"
     max_threshold = 75
 }
 
@@ -47,6 +46,17 @@ volume master {
     device = "default"
     mixer = "Master"
     mixer_idx = 0
+}
+
+battery all {
+    format = "%status %percentage"
+    format_down = " No battery "
+    status_chr = " CHR"
+    status_bat = " BAT"
+    status_unk = "? UNK"
+    status_full = "☻ FULL"
+    path = "/sys/class/power_supply/BAT%d/uevent"
+    low_threshold = 10
 }
 
 tztime local {
