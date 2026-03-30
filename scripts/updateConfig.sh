@@ -23,3 +23,7 @@ rsync ~/.config/alacritty/alacritty.toml ~/projects/.config/alacritty/alacritty.
 rsync ~/.config/alacritty/laotze.toml ~/projects/.config/alacritty/laotze.toml
 rsync ~/.config/alacritty/pinkPunk.toml ~/projects/.config/alacritty/pinkPunk.toml
 
+#hyprland
+
+rsync ~/.config/hypr/hyprland.conf ~/projects/.config/hypr/hyprland.conf
+
