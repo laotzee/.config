@@ -2,8 +2,8 @@
 #
 current_date=$(date +%Y-%m-%d)
 
-export w1=/home/laotze/writing/posts/eng/drafts/8.md
-export w2=~/writing/posts/esp/7.md
+export w1=/home/laotze/writing/posts/eng/drafts/14.md
+export w2=/home/laotze/writing/posts/esp/12.md
 
 export d=~/writing/daily/$current_date.md
 export dw=~/writing/posts/daily/$current_date.md
@@ -11,6 +11,7 @@ export dw=~/writing/posts/daily/$current_date.md
 # General programs
 #
 alias ct='python3 ~/projects/Script-Dump/utility/uncheck-todo/main.py ~/todo.md'
+alias v='nvim'
 
 # Development
 
