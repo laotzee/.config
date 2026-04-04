@@ -24,6 +24,7 @@ rsync ~/.config/alacritty/laotze.toml ~/projects/.config/alacritty/laotze.toml
 rsync ~/.config/alacritty/pinkPunk.toml ~/projects/.config/alacritty/pinkPunk.toml
 
 #hyprland
-
 rsync ~/.config/hypr/hyprland.conf ~/projects/.config/hypr/hyprland.conf
 
+#waybar
+rsync ~/.config/waybar/config ~/projects/.config/waybar/config
