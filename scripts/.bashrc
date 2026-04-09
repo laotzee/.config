@@ -11,7 +11,9 @@ export dw=~/writing/posts/daily/$current_date.md
 # General programs
 #
 alias ct='python3 ~/projects/Script-Dump/utility/uncheck-todo/main.py ~/todo.md'
-alias v='nvim'
+alias nv='nvim'
+alias v='vim'
+alias p='python'
 
 # Development
 
@@ -47,7 +49,7 @@ fi
 unset rc
 
 # Git command abbreviations
- 
+
 alias g='git'
 alias gs='git status'
 alias ga='git add'
