@@ -95,6 +95,7 @@
         "format": "   Watcher: {}   ", 
         "interval": 600,
         "exec": "~/scripts/watcher_on",
+        "on-click": "alacritty -e ssh mia"
     },
 
     "tray": {
