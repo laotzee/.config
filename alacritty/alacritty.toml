@@ -1,6 +1,6 @@
 [general]
 import = [
-    "~/.config/alacritty/pinkPunk.toml"
+    "~/.config/alacritty/laotze.toml"
 ]
 [window]
 opacity = 0.90
