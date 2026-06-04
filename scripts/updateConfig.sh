@@ -22,6 +22,7 @@ rsync ~/.config/lynx/lynx.lss ~/projects/.config/lynx/lynx.lss
 rsync ~/.config/alacritty/alacritty.toml ~/projects/.config/alacritty/alacritty.toml
 rsync ~/.config/alacritty/laotze.toml ~/projects/.config/alacritty/laotze.toml
 rsync ~/.config/alacritty/pinkPunk.toml ~/projects/.config/alacritty/pinkPunk.toml
+rsync ~/.config/alacritty/smokeyRed.toml ~/projects/.config/alacritty/smokeyRed.toml
 
 #hyprland
 rsync ~/.config/hypr/hyprland.conf ~/projects/.config/hypr/hyprland.conf
