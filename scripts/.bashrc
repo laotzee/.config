@@ -2,7 +2,7 @@
 #
 current_date=$(date +%Y-%m-%d)
 
-export w1=/home/laotze/writing/posts/eng/drafts/16.md
+export w1=/home/laotze/writing/posts/eng/drafts/17.md
 export w2=/home/laotze/writing/posts/esp/12.md
 
 export d=~/writing/daily/$current_date.md
@@ -89,6 +89,9 @@ alias uconf='bash ~/projects/.config/scripts/updateConfig.sh'
 export WWW_HOME='duckduckgo.com'
 export LYNX_CFG=~/.config/lynx/lynx.cfg
 export LYNX_LSS=~/.config/lynx/lynx.lss
-export PATH="$HOME/scripts:$PATH"
 export EDITOR="/usr/bin/nvim"
 export VISUAL="$EDITOR"
+
+if ! [[ "$PATH" =~ $HOME/scripts ]]; then
+    export PATH="$HOME/scripts:$PATH"
+fi
