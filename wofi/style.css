@@ -1,0 +1,49 @@
+/* Your color definitions */
+@define-color bg rgba(8, 5, 10, 0.8);
+@define-color s-color #FAD1D1;
+@define-color n-color rgba(255, 0, 0, 0.5);
+
+
+window {
+    margin: 0px;
+    border: none;
+    border-radius: 12px;
+    background-color: @bg;
+    font-family: "JetBrainsMono Nerd Font", "monospace";
+    font-size: 25px;
+}
+
+#outer-box {
+    margin: 8px;
+    padding: 15px;
+    background-color: transparent;
+}
+
+#input {
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    color: @s-color;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#inner-box {
+    margin: 10px;
+    background-color: transparent;
+}
+
+#text {
+    margin: 10px;
+    color: @s-color; /* Regular font color */
+}
+
+#entry:selected {
+    background-color: @n-color;
+    border-radius: 8px;
+    outline: none;
+}
+
+#text:selected {
+    color: @s-color;
+    font-weight: bold;
+}
